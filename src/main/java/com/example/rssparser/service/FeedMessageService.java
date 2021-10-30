@@ -15,8 +15,11 @@ import java.util.Optional;
 
 @Service
 public class FeedMessageService {
+    private final FeedMessageRepository feedMessageRepository;
     @Autowired
-    private FeedMessageRepository feedMessageRepository;
+    public FeedMessageService(FeedMessageRepository feedMessageRepository){
+        this.feedMessageRepository = feedMessageRepository;
+    }
 
     public void updateRssFeedMessages(FeedMessage latestFeedMessage){
         Optional<FeedMessage> feedMessageOptional = feedMessageRepository.findFeedMessageByTitle(latestFeedMessage.getTitle());
