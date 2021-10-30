@@ -9,7 +9,10 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "tbl_feed_message")
+@Table(name = "tbl_feed_message",
+        uniqueConstraints = {
+                @UniqueConstraint(name = "feedMessageTitle", columnNames = "title")
+        })
 public class FeedMessage {
     @Id
     @SequenceGenerator(
