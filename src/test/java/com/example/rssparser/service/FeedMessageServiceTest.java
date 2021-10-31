@@ -12,6 +12,7 @@ import org.springframework.data.domain.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+
 import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
@@ -50,5 +51,6 @@ class FeedMessageServiceTest {
         //then
         Pageable pageable = PageRequest.of(0,10, Sort.by(Sort.Direction.fromString("asc"), "updatedDate"));
         verify(feedMessageRepository).findAll(pageable);
+
     }
 }

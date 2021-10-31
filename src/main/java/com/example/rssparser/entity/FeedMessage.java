@@ -26,7 +26,7 @@ public class FeedMessage {
     )
     private int id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, updatable = false)
     private String title;
 
     @Lob
